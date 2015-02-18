@@ -11,6 +11,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import org.apache.http.protocol.HTTP;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -64,9 +66,18 @@ public class MainActivity extends ActionBarActivity {
                         intent = new Intent(Intent.ACTION_EDIT,
                                 Uri.parse("content://contacts/people/1"));
                         break;
+                    case 9:
+                        //intent = new Intent(Intent.ACTION_EDIT, Uri.parse("content://contacts/people/1"));
+                        //Intent intent = new Intent(Intent.ACTION_SENDTO);
+                        intent = new Intent(Intent.ACTION_SENDTO);
+                        intent.setType(HTTP.PLAIN_TEXT_TYPE);
+                        intent.putExtra("sms_body", "Hi");
+
+                        //intent.putExtra(Intent.EXTRA_STREAM, attachment);
+                        break;
 
                 }
-                if (intent != null) {
+                if ((intent != null) && (intent.resolveActivity(getPackageManager()) != null)) {
                     startActivity(intent);
                 }
 
