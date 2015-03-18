@@ -35,38 +35,48 @@ public class MainActivity extends ActionBarActivity {
                 //int position = spinner.getSelectedItemPosition();
                 Intent intent = null;
                 switch (position) {
+                    // call an intent to do the required action
                     case 1:
+                        // Visit the CSS website
                         Uri mylink = Uri.parse("http://www.css.edu");
                         intent = new Intent(Intent.ACTION_VIEW, mylink);
                         break;
                     case 2:
+                        // call a telephone number, but don't dial it yet.
                         intent = new Intent(Intent.ACTION_CALL,
                                 Uri.parse("tel:(218)7236294"));
                         break;
                     case 3:
+                        // place a call, dial a number
                         intent = new Intent(Intent.ACTION_DIAL,
                                 Uri.parse("tel:(218)7236294"));
                         break;
                     case 4:
+                        // displace a map location on the map app
                         intent = new Intent(Intent.ACTION_VIEW,
                                 Uri.parse("geo:46.907005,-92.201879?z=19"));
                         break;
                     case 5:
+                        // bring up the map app and lets you search for something
                         intent = new Intent(Intent.ACTION_VIEW,
                                 Uri.parse("geo:0,0?q=query"));
                         break;
                     case 6:
+                        // Use the camera app to take a photo
                         intent = new Intent("android.media.action.IMAGE_CAPTURE");
                         break;
                     case 7:
+                        // bring up the contacts so you can search for someone
                         intent = new Intent(Intent.ACTION_VIEW,
                                 Uri.parse("content://contacts/people/"));
                         break;
                     case 8:
+                        // bring up the contacts so yo can edit someone
                         intent = new Intent(Intent.ACTION_EDIT,
                                 Uri.parse("content://contacts/people/1"));
                         break;
                     case 9:
+                        // send a text or SMS message
                         //intent = new Intent(Intent.ACTION_EDIT, Uri.parse("content://contacts/people/1"));
                         //Intent intent = new Intent(Intent.ACTION_SENDTO);
                         intent = new Intent(Intent.ACTION_SENDTO);
